@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="eventresource" load_steps=2 format=3 uid="uid://rwsx3tyh66ye"]
+
+[ext_resource type="Script" path="res://Misc/eventres.gd" id="1_5mbvd"]
+
+[resource]
+script = ExtResource("1_5mbvd")
+id = 3
+baseText = "You find a ghost that has attatchments to this world	"
+l1text = "Sit with them. Help them move on."
+l2text = "Give them closure by completing a quest for them"
+l3text = "Allow them to possess you"
+l4text = "Slay them. Harvest its life."

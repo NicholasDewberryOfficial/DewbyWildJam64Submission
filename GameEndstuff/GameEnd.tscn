@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://iwowxjj1yqhj"]
+
+[ext_resource type="Texture2D" uid="uid://bisy5l6i12d23" path="res://GameEndstuff/cloudsinthedesert.png" id="1_fq7ti"]
+[ext_resource type="Script" path="res://GameEndstuff/GameEndScript.gd" id="1_sseou"]
+[ext_resource type="Texture2D" uid="uid://ch0u1k5ygs4d1" path="res://GameEndstuff/sunsetintheswamp.png" id="2_2a1vn"]
+[ext_resource type="Texture2D" uid="uid://v3jm8an1flmw" path="res://GameEndstuff/coldmountain.png" id="3_p0vsm"]
+[ext_resource type="Texture2D" uid="uid://s2c1mjir8jv1" path="res://GameEndstuff/wizardtower.png" id="4_afayg"]
+
+[node name="GameEnd" type="Node2D"]
+script = ExtResource("1_sseou")
+
+[node name="Button" type="Button" parent="."]
+z_index = 275
+offset_left = 712.0
+offset_top = 392.0
+offset_right = 968.0
+offset_bottom = 504.0
+text = "Try for a different ending?"
+
+[node name="GoodEnd" type="Node2D" parent="."]
+visible = false
+
+[node name="Cloudsinthedesert" type="Sprite2D" parent="GoodEnd"]
+self_modulate = Color(0.447059, 0.447059, 0.447059, 1)
+position = Vector2(576, 344)
+scale = Vector2(1.152, 1)
+texture = ExtResource("1_fq7ti")
+
+[node name="GoodText" type="RichTextLabel" parent="GoodEnd"]
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 384.0
+offset_bottom = 376.0
+text = "You have ascended! The tyrant is defeated, and the hero has a pure heart. The kingdom is safe from the tyrant. 
+
+The hero spends the rest of their life happy and surrounded by loved ones before peacefully perishing at a ripe old age. "
+
+[node name="NeutralEnd" type="Node2D" parent="."]
+visible = false
+
+[node name="Swampsunset" type="Sprite2D" parent="NeutralEnd"]
+self_modulate = Color(0.447059, 0.447059, 0.447059, 1)
+position = Vector2(576, 344)
+scale = Vector2(1.152, 1)
+texture = ExtResource("2_2a1vn")
+
+[node name="NeutralText" type="RichTextLabel" parent="NeutralEnd"]
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 448.0
+offset_bottom = 400.0
+text = "The tyrant is defeated - but no ascension has been bestowed upon the hero. The tyrant still lives. 
+
+The tyrant no longer has any poltiical power, but he still terrorizes the land. The hero lives their life as the lord of a tumultuous land. "
+
+[node name="StressEnd" type="Node2D" parent="."]
+visible = false
+
+[node name="Coldmountain" type="Sprite2D" parent="StressEnd"]
+self_modulate = Color(0.447059, 0.447059, 0.447059, 1)
+position = Vector2(576, 344)
+scale = Vector2(1.152, 1)
+texture = ExtResource("3_p0vsm")
+
+[node name="StressText" type="RichTextLabel" parent="StressEnd"]
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 464.0
+offset_bottom = 440.0
+text = "The tyrant was defeated by a hero of pure heart. Yet - at the last moment, the hero refused the right to ascend. 
+
+The adventure left a deep scar on their heart, one that they will need to take time to heal from. 
+
+The hero left the continent to a remote side of the world, where they lived in peace, away from it all. They shall return someday, when someone else ascends. "
+
+[node name="EvilEnd" type="Node2D" parent="."]
+visible = false
+
+[node name="wizarrdtower" type="Sprite2D" parent="EvilEnd"]
+self_modulate = Color(0.447059, 0.447059, 0.447059, 1)
+position = Vector2(576, 344)
+scale = Vector2(1.152, 1)
+texture = ExtResource("4_afayg")
+
+[node name="WizardText" type="RichTextLabel" parent="EvilEnd"]
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 504.0
+offset_bottom = 472.0
+text = "The tyrant was slain by a bloodthirsty savage in one-sided combat. The savage defiled the magic of the tyrant, to prevent them from rising again. The former hero tried to complete the ritual by ascending - however the gods had other plans.
+
+At once, a black suit of armor with sharp spikes flew across the room and attatched itself to the new tyrant.
+
+A hero wanted power - but now they are trapped. Doomed to serve as the tyrant that will lose."
+
+[node name="herostats" type="RichTextLabel" parent="."]
+offset_left = 680.0
+offset_right = 1144.0
+offset_bottom = 184.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

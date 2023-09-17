@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="eventresource" load_steps=2 format=3 uid="uid://cd7q1oypx0ecx"]
+
+[ext_resource type="Script" path="res://Misc/eventres.gd" id="1_8dr30"]
+
+[resource]
+script = ExtResource("1_8dr30")
+id = 2
+baseText = "You find a hungry minotaur prowling			"
+l1text = "Give it food, let it live"
+l2text = "Slay it in armed combat"
+l3text = "Defeat it in unarmed combat		"
+l4text = "Defeat it and consume its meat"

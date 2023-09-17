@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="eventresource" load_steps=2 format=3 uid="uid://qxilq4q2fv24"]
+
+[ext_resource type="Script" path="res://Misc/eventres.gd" id="1_hlc8s"]
+
+[resource]
+script = ExtResource("1_hlc8s")
+id = 8
+baseText = "You come across a stone door that impedes your progress. A plaque reads: \"Solve my riddle, and I will let you pass\"."
+l1text = "Take your time with the riddle and answer once"
+l2text = "See what enchantments are on the door and study them. Then, break them and leave"
+l3text = "Answer the riddle multiple times"
+l4text = "Break down the door"

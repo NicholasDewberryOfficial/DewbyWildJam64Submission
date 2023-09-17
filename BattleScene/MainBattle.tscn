@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=3 uid="uid://c23y5ek6j7t2c"]
+
+[ext_resource type="Script" path="res://BattleScene/ControlBattle.gd" id="1_i01nu"]
+[ext_resource type="Texture2D" uid="uid://ci1xhluuxmp60" path="res://BattleScene/warlord-helmet.png" id="1_n8hj3"]
+[ext_resource type="Script" path="res://BattleScene/ControlPlayer.gd" id="2_6kaw8"]
+[ext_resource type="Texture2D" uid="uid://cphfk0jgy0oah" path="res://BattleScene/swordman.png" id="2_17bmr"]
+[ext_resource type="Script" path="res://BattleScene/ControlEnemy.gd" id="4_sfw84"]
+
+[sub_resource type="Gradient" id="Gradient_tbhop"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_37gma"]
+gradient = SubResource("Gradient_tbhop")
+fill_from = Vector2(0.688073, 0.509174)
+fill_to = Vector2(0.353211, 0.431193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4vs4"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bosx"]
+size = Vector2(20, 178)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7plw"]
+bg_color = Color(0.00784314, 0.0509804, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgtt"]
+bg_color = Color(0.878431, 0.454902, 0.478431, 1)
+
+[node name="MainBattle" type="Node2D"]
+script = ExtResource("1_i01nu")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 640.0
+texture = SubResource("GradientTexture2D_37gma")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 1224.0
+offset_top = -64.0
+offset_right = 1536.0
+offset_bottom = 400.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 168.0
+offset_bottom = 160.0
+texture = ExtResource("1_n8hj3")
+expand_mode = 1
+
+[node name="CombatPanel" type="Panel" parent="."]
+offset_left = 120.0
+offset_top = 320.0
+offset_right = 984.0
+offset_bottom = 488.0
+
+[node name="Playerbody" type="CharacterBody2D" parent="CombatPanel"]
+position = Vector2(10, 0)
+script = ExtResource("2_6kaw8")
+
+[node name="Area2D" type="Area2D" parent="CombatPanel/Playerbody"]
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="CombatPanel/Playerbody/Area2D"]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_s4vs4")
+
+[node name="PlayerSprite" type="TextureRect" parent="CombatPanel/Playerbody/Area2D/PlayerCollider"]
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 52.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_17bmr")
+expand_mode = 1
+
+[node name="PlayerBumper" type="CollisionShape2D" parent="CombatPanel/Playerbody"]
+position = Vector2(56, 64)
+shape = SubResource("RectangleShape2D_s4vs4")
+
+[node name="EnemyBody" type="CharacterBody2D" parent="CombatPanel"]
+position = Vector2(712, 0)
+script = ExtResource("4_sfw84")
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="CombatPanel/EnemyBody"]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_s4vs4")
+
+[node name="EnemySprite" type="TextureRect" parent="CombatPanel/EnemyBody/EnemyCollider"]
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 52.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n8hj3")
+expand_mode = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="CombatPanel"]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatPanel/RigidBody2D"]
+position = Vector2(0, 79)
+shape = SubResource("RectangleShape2D_4bosx")
+
+[node name="playerhpbar" type="ProgressBar" parent="."]
+offset_left = 104.0
+offset_top = 208.0
+offset_right = 352.0
+offset_bottom = 235.0
+theme_override_styles/background = SubResource("StyleBoxFlat_q7plw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tbgtt")
+max_value = 20.0
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[node name="EnemyHPBar" type="ProgressBar" parent="."]
+offset_left = 752.0
+offset_top = 208.0
+offset_right = 1000.0
+offset_bottom = 235.0
+theme_override_styles/background = SubResource("StyleBoxFlat_q7plw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tbgtt")
+max_value = 20.0
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[connection signal="area_entered" from="CombatPanel/Playerbody/Area2D" to="CombatPanel/Playerbody" method="_on_area_2d_area_entered"]

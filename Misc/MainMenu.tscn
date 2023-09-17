@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://eenj2iumnoml"]
+
+[ext_resource type="Script" path="res://Misc/MainMenu.gd" id="1_fnb80"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 733.0
+offset_top = -1.0
+offset_right = 1164.0
+offset_bottom = 150.0
+text = "The Trial Of The Hero
+"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 633.0
+offset_top = 473.0
+offset_right = 836.0
+offset_bottom = 565.0
+text = "PLAY"
+script = ExtResource("1_fnb80")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 660.0
+offset_top = 62.0
+offset_right = 1120.0
+offset_bottom = 444.0
+text = "You are one of dozens of heroes, entering a dungeon to complete a trial.
+
+
+Complete various encounters before facing off against the brutal tyrant in armed combat. 
+
+All of those who enter and live shall \"ascend\". However, will it be good? 
+
+Can you find all 4 endings? 
+
+Hint: see what happens when you do 2+ runs..."
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

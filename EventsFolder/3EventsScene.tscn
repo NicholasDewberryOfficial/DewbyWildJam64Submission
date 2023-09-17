@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=3 uid="uid://du43uq2s827u4"]
+
+[ext_resource type="Script" path="res://EventsFolder/EventController.gd" id="1_uci71"]
+
+[sub_resource type="Animation" id="Animation_k6sr2"]
+resource_name = "TextAppearance"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Introductiontext:visible_characters")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(0.784585, 3.13835, 1),
+"update": 0,
+"values": [0, 90, 128000]
+}
+
+[sub_resource type="Animation" id="Animation_qb42n"]
+resource_name = "appeargoOn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d4rlk"]
+_data = {
+"TextAppearance": SubResource("Animation_k6sr2"),
+"appeargoOn": SubResource("Animation_qb42n")
+}
+
+[sub_resource type="Gradient" id="Gradient_tj1cs"]
+offsets = PackedFloat32Array(0, 0.963325)
+colors = PackedColorArray(0, 0, 0, 1, 0.788235, 0.14902, 0.0862745, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cn6ij"]
+gradient = SubResource("Gradient_tj1cs")
+
+[node name="3EventsScene" type="Node2D"]
+script = ExtResource("1_uci71")
+
+[node name="Black background" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="b1" type="Button" parent="Black background"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 296.0
+offset_right = 248.0
+offset_bottom = 584.0
+
+[node name="l1" type="Label" parent="Black background/b1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Swim into the waters and help them"
+autowrap_mode = 3
+
+[node name="b2" type="Button" parent="Black background"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 296.0
+offset_right = 544.0
+offset_bottom = 584.0
+
+[node name="l2" type="Label" parent="Black background/b2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Swim into the waters and help them"
+autowrap_mode = 3
+
+[node name="b3" type="Button" parent="Black background"]
+visible = false
+layout_mode = 0
+offset_left = 608.0
+offset_top = 296.0
+offset_right = 848.0
+offset_bottom = 584.0
+
+[node name="l3" type="Label" parent="Black background/b3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Swim into the waters and help them"
+autowrap_mode = 3
+
+[node name="b4" type="Button" parent="Black background"]
+visible = false
+layout_mode = 0
+offset_left = 904.0
+offset_top = 296.0
+offset_right = 1144.0
+offset_bottom = 584.0
+
+[node name="l4" type="Label" parent="Black background/b4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Swim into the waters and help them"
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d4rlk")
+}
+
+[node name="Introductiontext" type="RichTextLabel" parent="AnimationPlayer"]
+offset_left = 465.0
+offset_right = 1146.0
+offset_bottom = 251.0
+text = "When walking through the dungeon, the hero finds someone drowning in a lake. "
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="goOnBackground" type="TextureRect" parent="AnimationPlayer"]
+visible = false
+modulate = Color(0.94902, 0.94902, 0.94902, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture1D_cn6ij")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AnimationPlayer/goOnBackground"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 24.0
+offset_right = 736.0
+offset_bottom = 200.0
+text = "The road ends here. It is time to fight. "
+
+[node name="gonextbutton" type="Button" parent="AnimationPlayer/goOnBackground"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 400.0
+offset_right = 560.0
+offset_bottom = 496.0
+text = "We go onwards."
+
+[connection signal="pressed" from="Black background/b1" to="." method="_on_b_1_pressed"]
+[connection signal="pressed" from="Black background/b2" to="." method="_on_b_2_pressed"]
+[connection signal="pressed" from="Black background/b3" to="." method="_on_b_3_pressed"]
+[connection signal="pressed" from="Black background/b4" to="." method="_on_b_4_pressed"]
+[connection signal="pressed" from="AnimationPlayer/goOnBackground/gonextbutton" to="." method="_on_gonextbutton_pressed"]

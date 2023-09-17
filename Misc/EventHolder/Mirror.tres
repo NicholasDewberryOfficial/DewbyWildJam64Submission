@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="eventresource" load_steps=2 format=3 uid="uid://c84htbhxmjkh"]
+
+[ext_resource type="Script" path="res://Misc/eventres.gd" id="1_hlc8s"]
+
+[resource]
+script = ExtResource("1_hlc8s")
+id = 7
+baseText = "A massive mirror blocks your path. Your greatest fears are reflected in its sheen."
+l1text = "Gaze into the mirror before smashing it."
+l2text = "Swiftly and skillfully smash the mirror before it can learn too much about you"
+l3text = "Expose yourself to the darkest emotions you feel, and overcome them"
+l4text = "Embrace your fears and regrets - let it mold you into the worst version of yourself"

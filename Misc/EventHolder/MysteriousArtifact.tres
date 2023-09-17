@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="eventresource" load_steps=2 format=3 uid="uid://da2y1q8bkqcm2"]
+
+[ext_resource type="Script" path="res://Misc/eventres.gd" id="1_q7s7m"]
+
+[resource]
+script = ExtResource("1_q7s7m")
+id = 5
+baseText = "You see a magic locket on an altar. When you approach, you notice that it's scared of you."
+l1text = "Respect the spirit, and leave it alone"
+l2text = "Examine it, but don't pick it up."
+l3text = "Appease the spirit with a gift, and take the artifact."
+l4text = "Greedily snatch it. "
