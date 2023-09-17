@@ -1,5 +1,4 @@
 # DewbyWildJam64Submission
 Wildjam64.Scuffed
 
-Uh.. Ill update this later. Just wanated to get something out the door. Play it in browser here https://drdewby.itch.io/the-trial-of-the-hero-wild-jam-61-submission
-
+Hey. I wanted to finally start publishing games rather than having these massive bloated 3+ month long development cycles that dont have any result. This is my worst one. But its only up from here.
